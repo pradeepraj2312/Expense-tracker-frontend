@@ -14,7 +14,7 @@ function ExpenceContainetr() {
   const [Expense, setExpense] = useState([])
   async function getExpence() {
     try {
-      const data = await fetch('http://localhost:5050/expence/get');
+      const data = await fetch('https://expense-tracker-backend-sehb.onrender.com/expence/get');
       const expense = await data.json();
       setExpense(expense)
     } catch (error) {
@@ -28,7 +28,7 @@ function ExpenceContainetr() {
   // console.log(Expense)
   // Add new expense
   async function AddExpense(title, amount) {
-    const response = await fetch('http://localhost:5050/expence/data', {
+    const response = await fetch('https://expense-tracker-backend-sehb.onrender.com/expence/data', {
       method: "POST",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify({ title, amount })
@@ -39,7 +39,7 @@ function ExpenceContainetr() {
   }
 async function DeleteExpense(id) {
   try {
-    const response = await fetch(`http://localhost:5050/expence/delete/${id}`, {
+    const response = await fetch(`https://expense-tracker-backend-sehb.onrender.com/expence/delete/${id}`, {
       method: 'DELETE', // You forgot to specify the method
       headers: { 'Content-Type': 'application/json' }
     });
