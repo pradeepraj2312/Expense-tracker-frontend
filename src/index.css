@@ -1,30 +1,36 @@
-
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
+  font-size: 16px;
 }
+
 body {
   background-color: #f3fcff;
+  margin: 0;
+  padding: 0;
 }
+
 .expense-container {
   background-color: #fff;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   max-width: 600px;
-  margin: 0 auto;
-  margin-top: 50px;
+  margin: 50px auto;
+  width: 90%;
 }
 
 .expense-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
+  padding: 12px;
   border: 1px solid #ddd;
   border-radius: 5px;
   margin-bottom: 10px;
+  position: relative;
+  flex-wrap: wrap;
 }
 
 .expense-item.income {
@@ -45,30 +51,39 @@ body {
 
 .expense-form {
   padding: 10px;
-  padding-top: 0;
   border: 1px solid #ddd;
   border-radius: 5px;
   margin-top: 20px;
 }
+
 .form-group {
   display: flex;
   flex-direction: column;
   gap: 5px;
   margin-bottom: 10px;
 }
+
 input {
-  padding: 10px;
+  padding: 12px;
   border: 1px solid #ddd;
   border-radius: 5px;
+  font-size: 1rem;
 }
+
 button {
-  padding: 10px;
+  padding: 12px;
   border-radius: 5px;
   border: none;
   background-color: #6466f1;
   color: #fff;
   cursor: pointer;
   width: 100%;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #4b4df0;
 }
 
 .balance-container {
@@ -77,6 +92,8 @@ button {
   padding: 20px;
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .currency-item {
@@ -88,6 +105,8 @@ button {
   color: #fff;
   border-radius: 10px;
   padding: 20px 30px;
+  flex: 1 1 120px;
+  min-width: 120px;
 }
 
 .currency-item .title {
@@ -128,6 +147,7 @@ button {
   transition: all 0.3s ease-in-out;
   transform: translateX(10%);
 }
+
 .delete-button-overlay button {
   border: none;
   border-radius: 5px;
@@ -135,11 +155,41 @@ button {
   width: 100px;
   background-color: #f14848;
   color: #fff;
+  font-size: 0.9rem;
 }
-.expense-item {
-  position: relative;
-}
+
 .expense-item:hover .delete-button-overlay {
   opacity: 1;
   transform: translateX(0);
+}
+
+/* 🌐 Responsive Design */
+@media (max-width: 768px) {
+  .expense-container {
+    margin-top: 30px;
+    padding: 15px;
+  }
+
+  .expense-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+
+  .currency-item {
+    padding: 15px 20px;
+    font-size: 0.9rem;
+  }
+
+  .currency-item .amount {
+    font-size: 20px;
+  }
+
+  button {
+    font-size: 0.95rem;
+  }
+
+  input {
+    font-size: 0.95rem;
+  }
 }
